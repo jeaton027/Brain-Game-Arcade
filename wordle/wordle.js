@@ -128,7 +128,6 @@ function submitWord() {
 		} else if (numGuessedWords === 5) {
 			gameIsOver(false);
 		}
-		
 		numGuessedWords += 1;
 		guessedWords.push([]);
 		currentGuessedWord = [];
