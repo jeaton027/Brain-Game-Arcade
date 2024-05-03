@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Wordle</title>
+
+	<link rel="stylesheet" href="style.css">
+	
+</head>
+<body>
+	<div class="game-container">
+		<header>
+			<div class="title-container">
+				<span></span>
+				<h1 class="title">WORDLE</h1>
+				<div class="menu">
+					<button id="settings-button" onclick="settingsMenu()">
+						<img src="icons/settings.png" alt="Settings">
+					</button>
+					<div id="settings-dropdown" class="dropdown-menu">
+						<button onclick="setWordLength(4)">4 Letters</button>
+						<button onclick="setWordLength(5)">5 Letters</button>
+					</div>
+					<button id="stats-button" onclick="showStatistics()">
+						<img src="icons/stats.png" alt="Statistics">
+					</button>
+				</div>
+			</div>
+			<hr>
+		</header>
+		
+		<div class="message-box">
+			<p></p>
+			<button id="restart-button" onclick="restartGame()">Restart Game</button>
+		</div>
+
+		<div id="board-container">
+			<div id="board"></div>
+		</div>
+
+		<div id="keyboard-container">
+			<div class = "keyboard">
+				<!-- <button data-key="q">q</button> -->
+				<div class="keyboard-row">
+					<button class="key" data-key="Q" onclick="keyPress('Q')">Q</button>
+					<button class="key" data-key="W" onclick="keyPress('W')">W</button>
+					<button class="key" data-key="E" onclick="keyPress('E')">E</button>
+					<button class="key" data-key="R" onclick="keyPress('R')">R</button>
+					<button class="key" data-key="T" onclick="keyPress('T')">T</button>
+					<button class="key" data-key="Y" onclick="keyPress('Y')">Y</button>
+					<button class="key" data-key="U" onclick="keyPress('U')">U</button>
+					<button class="key" data-key="I" onclick="keyPress('I')">I</button>
+					<button class="key" data-key="O" onclick="keyPress('O')">O</button>
+					<button class="key" data-key="P" onclick="keyPress('P')">P</button>
+				</div>
+		
+				<!-- Second row of the keyboard -->
+				<div class="keyboard-row" class="middle-keyboard-row">
+					<div class="key-spacer"></div>
+					<button class="key" data-key="A" onclick="keyPress('A')">A</button>
+					<button class="key" data-key="S" onclick="keyPress('S')">S</button>
+					<button class="key" data-key="D" onclick="keyPress('D')">D</button>
+					<button class="key" data-key="F" onclick="keyPress('F')">F</button>
+					<button class="key" data-key="G" onclick="keyPress('G')">G</button>
+					<button class="key" data-key="H" onclick="keyPress('H')">H</button>
+					<button class="key" data-key="J" onclick="keyPress('J')">J</button>
+					<button class="key" data-key="K" onclick="keyPress('K')">K</button>
+					<button class="key" data-key="L" onclick="keyPress('L')">L</button>
+					<div class="key-spacer"></div>
+				</div>
+		
+				<!-- Third row of the keyboard -->
+				<div class="keyboard-row">
+					<button class="key-large" onclick="keyPress('ENTER')">ENTER</button>
+					<button class="key" data-key="Z" onclick="keyPress('Z')">Z</button>
+					<button class="key" data-key="X" onclick="keyPress('X')">X</button>
+					<button class="key" data-key="C" onclick="keyPress('C')">C</button>
+					<button class="key" data-key="V" onclick="keyPress('V')">V</button>
+					<button class="key" data-key="B" onclick="keyPress('B')">B</button>
+					<button class="key" data-key="N" onclick="keyPress('N')">N</button>
+					<button class="key" data-key="M" onclick="keyPress('M')">M</button>
+					<button class="key-large" onclick="keyPress('BACK')">BACK</button>
+					<!-- <button type="button" data-key="←" aria-label="backspace" aria-disabled="false" class="Key-module_key__kchQI Key-module_oneAndAHalf__bq8Tw"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20" class="game-icon" data-testid="icon-backspace"><path fill="var(--color-tone-1)" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"></path></svg></button> -->
+				</div>
+			</div>
+		</div>
+
+		<h1 id="answer"></h1>
+	</div>
+	<script src="index.js"></script>
+</body>
+</html>

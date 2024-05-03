@@ -1,0 +1,50 @@
+[
+    {
+        "image": "assets/desert/oasis.png",
+        "name": "oasis"
+    },
+    {
+        "image": "assets/desert/jeep.png",
+        "name": "jeep"
+    },
+    {
+        "image": "assets/desert/skullcattle.png",
+        "name": "skullcattle"
+    },
+    {
+        "image": "assets/desert/camel.png",
+        "name": "camel"
+    },
+    {
+        "image": "assets/desert/cactus.png",
+        "name": "cactus"
+    },
+    {
+        "image": "assets/desert/rock.png",
+        "name": "rock"
+    },
+    {
+        "image": "assets/desert/sandstorm.png",
+        "name": "sandstorm"
+    },
+    {
+        "image": "assets/desert/meerkat.png",
+        "name": "meerkat"
+    },
+    {
+        "image": "assets/desert/acacia.png",
+        "name": "acacia"
+    },
+    {
+        "image": "assets/desert/skullround.png",
+        "name": "skullround"
+    },
+    {
+        "image": "assets/desert/scorpion.png",
+        "name": "scorpion"
+    },
+    {
+        "image": "assets/desert/cobra.png",
+        "name": "cobra"
+    }
+]

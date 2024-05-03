@@ -1,0 +1,54 @@
+[
+    {
+        "image": "assets/summer/lounger.png",
+        "name": "lounger"
+    },
+    {
+        "image": "assets/summer/shirt.png",
+        "name": "shirt"
+    },
+    {
+        "image": "assets/summer/surfboard.png",
+        "name": "surfboard"
+    },
+    {
+        "image": "assets/summer/hammock.png",
+        "name": "hammock"
+    },
+    {
+        "image": "assets/summer/watermelon.png",
+        "name": "watermelon"
+    },
+    {
+        "image": "assets/summer/fins.png",
+        "name": "fins"
+    },
+    {
+        "image": "assets/summer/snorkel.png",
+        "name": "snorkel"
+    },
+    {
+        "image": "assets/summer/swimming.png",
+        "name": "swimming"
+    },
+    {
+        "image": "assets/summer/icecream.png",
+        "name": "icecream"
+    },
+    {
+        "image": "assets/summer/beachball.png",
+        "name": "beachball"
+    },
+    {
+        "image": "assets/summer/lemonade.png",
+        "name": "lemonade"
+    },
+    {
+        "image": "assets/summer/camera.png",
+        "name": "camera"
+    },
+    {
+        "image": "assets/summer/caravan.png",
+        "name": "caravan"
+    }
+]

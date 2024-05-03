@@ -1,0 +1,46 @@
+header {
+	display: flex;
+	justify-content: space-between; /* Ensures title and menu are on opposite ends */
+	align-items: center;
+	width: 100%;
+	padding: 0 20px; /* Add padding for spacing at the edges */
+}
+
+.title {
+	font-size: 36px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	color: #333;
+	margin: 0;
+	text-align: center;
+
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between buttons */
+}
+
+.menu button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu img {
+    height: 24px; /* Adjust size as needed */
+    width: auto; /* Maintain aspect ratio */
+}
+
+hr {
+	color: lightgray;
+	width: 500px;
+    border: 0;
+    height: 2px;
+    background-color: #ccc;
+	/* margin-bottom: 15px; */
+    /* margin: 20px 0; */
+	margin: 20px auto;
+	align-self: center;
+}

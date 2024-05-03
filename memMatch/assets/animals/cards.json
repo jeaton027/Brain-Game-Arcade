@@ -1,0 +1,66 @@
+[
+    {
+        "image": "assets/animals/parrot.png",
+        "name": "parrot"
+    },
+    {
+        "image": "assets/animals/elephant.png",
+        "name": "elephant"
+    },
+    {
+        "image": "assets/animals/dolphin.png",
+        "name": "dolphin"
+    },
+    {
+        "image": "assets/animals/lion.png",
+        "name": "lion"
+    },
+    {
+        "image": "assets/animals/camel.png",
+        "name": "camel"
+    },
+    {
+        "image": "assets/animals/flamingo.png",
+        "name": "flamingo"
+    },
+    {
+        "image": "assets/animals/kangaroo.png",
+        "name": "kangaroo"
+    },
+    {
+        "image": "assets/animals/reindeer.png",
+        "name": "reindeer"
+    },
+    {
+        "image": "assets/animals/chameleon.png",
+        "name": "chameleon"
+    },
+    {
+        "image": "assets/animals/sloth.png",
+        "name": "sloth"
+    },
+    {
+        "image": "assets/animals/crab.png",
+        "name": "crab"
+    },
+    {
+        "image": "assets/animals/bat.png",
+        "name": "bat"
+    },
+    {
+        "image": "assets/animals/giraffe.png",
+        "name": "giraffe"
+    },
+    {
+        "image": "assets/animals/fox.png",
+        "name": "fox"
+    },
+    {
+        "image": "assets/animals/koala.png",
+        "name": "koala"
+    },
+    {
+        "image": "assets/animals/crocodile.png",
+        "name": "crocodile"
+    }
+]

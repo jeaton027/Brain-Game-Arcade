@@ -1,0 +1,74 @@
+[
+    {
+        "image": "assets/carnival/popcorn.png",
+        "name": "popcorn"
+    },
+    {
+        "image": "assets/carnival/strength-test.png",
+        "name": "strength-test"
+    },
+    {
+        "image": "assets/carnival/roller-coaster.png",
+        "name": "roller-coaster"
+    },
+    {
+        "image": "assets/carnival/tent.png",
+        "name": "tent"
+    },
+    {
+        "image": "assets/carnival/train.png",
+        "name": "train"
+    },
+    {
+        "image": "assets/carnival/elephant.png",
+        "name": "elephant"
+    },
+    {
+        "image": "assets/carnival/lion.png",
+        "name": "lion"
+    },
+    {
+        "image": "assets/carnival/magician.png",
+        "name": "magician"
+    },
+    {
+        "image": "assets/carnival/canon.png",
+        "name": "canon"
+    },
+    {
+        "image": "assets/carnival/tickets.png",
+        "name": "tickets"
+    },
+    {
+        "image": "assets/carnival/amusement-park.png",
+        "name": "amusement-park"
+    },
+    {
+        "image": "assets/carnival/ferris-wheel.png",
+        "name": "ferris-wheel"
+    },
+    {
+        "image": "assets/carnival/clown.png",
+        "name": "clown"
+    },
+    {
+        "image": "assets/carnival/monkey.png",
+        "name": "monkey"
+    },
+    {
+        "image": "assets/carnival/seal.png",
+        "name": "seal"
+    },
+    {
+        "image": "assets/carnival/hot-air-balloon.png",
+        "name": "hot-air-balloon"
+    },
+    {
+        "image": "assets/carnival/balloons.png",
+        "name": "balloons"
+    },
+    {
+        "image": "assets/carnival/ring-of-fire.png",
+        "name": "ring-of-fire"
+    }
+]

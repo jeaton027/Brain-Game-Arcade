@@ -1,0 +1,64 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif; /* Setting a basic font */
+    background-color: white; /* White background for the game */
+    color: #333; /* Dark grey text for better readability */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center aligning all the contents */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    text-align: center; /* Centering the title */
+}
+
+.title {
+    font-size: 2em; /* Larger text for the game title */
+    margin-bottom: 0.5em; /* Spacing below the title */
+}
+
+hr {
+    width: 100%; /* Full width line */
+    border: 0;
+    height: 2px;
+    background-color: #ccc; /* Light grey line */
+    margin: 20px 0; /* Spacing around the hr */
+}
+
+/* Board container styling */
+#board-container {
+    width: 100%;
+    max-width: 500px; /* Maximum width of the board container */
+    display: flex;
+    justify-content: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Creates 5 columns */
+    grid-gap: 5px; /* Space between tiles */
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.tile {
+    background-color: #eee; /* Light grey background for each tile */
+    height: 60px; /* Height of each tile */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em; /* Larger font size for letters inside tiles */
+    color: #333;
+    border-radius: 4px; /* Rounded corners for the tiles */
+}
+
+/* Answer styling */
+#answer {
+    margin-top: 20px;
+    font-size: 1.25em;
+    color: green; /* Styling the answer text in green */
+}

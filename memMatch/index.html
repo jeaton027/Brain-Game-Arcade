@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Memory Match Game</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Memory Match</h1>
+	<button id="show-themes">Themes</button>
+	<div class="theme-selection" style="display: none;">
+		<button onclick="changeTheme('carnival')"> Carnival</button>
+		<button onclick="changeTheme('monuments')">World Wonders</button>
+		<button onclick="changeTheme('summer')">Summer</button>
+		<button onclick="changeTheme('animals')">Animals</button>
+		<button onclick="changeTheme('desert')">Desert</button>
+
+	</div>
+	<div id="game-board" class="game-board"></div>
+	<p>Moves: <span class="moves"></span></p>
+	<button id="restart-button" onclick="restartGame()">Restart Game</button>
+	<script src="index.js"></script>
+</body>
+</html>

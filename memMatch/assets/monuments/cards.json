@@ -1,0 +1,50 @@
+[
+    {
+        "image": "assets/monuments/stonehenge.png",
+        "name": "stonehenge"
+    },
+    {
+        "image": "assets/monuments/forbiddencity.png",
+        "name": "forbiddencity"
+    },
+    {
+        "image": "assets/monuments/spaceneedle.png",
+        "name": "spaceneedle"
+    },
+    {
+        "image": "assets/monuments/eiffel.png",
+        "name": "eiffel"
+    },
+    {
+        "image": "assets/monuments/sidneyopera.png",
+        "name": "sidneyopera"
+    },
+    {
+        "image": "assets/monuments/chichenitza.png",
+        "name": "chichenitza"
+    },
+    {
+        "image": "assets/monuments/easterisland.png",
+        "name": "easterisland"
+    },
+    {
+        "image": "assets/monuments/golden-gate.png",
+        "name": "golden-gate"
+    },
+    {
+        "image": "assets/monuments/pantheon.png",
+        "name": "pantheon"
+    },
+    {
+        "image": "assets/monuments/bigben.png",
+        "name": "bigben"
+    },
+    {
+        "image": "assets/monuments/pyramids.png",
+        "name": "pyramids"
+    },
+    {
+        "image": "assets/monuments/tajmahal.png",
+        "name": "tajmahal"
+    }
+]
