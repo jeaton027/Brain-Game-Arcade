@@ -23,4 +23,3 @@ Brain-Game-Arcade/
 		sudoku.html
 		sudoku.css
 		sudoku.js
-		
