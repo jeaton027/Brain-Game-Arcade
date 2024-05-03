@@ -1,4 +1,4 @@
-/* Basic Reset */
+/* basic reset */
 * {
 	margin: 0;
 	padding: 0;
@@ -30,7 +30,7 @@ hr {
 }
 
 header p {
-	color: #b0c4de; /* Light steel blue */
+	color: #b0c4de;
 	margin-bottom: 20px;
 }
 
@@ -53,7 +53,7 @@ header p {
 
 .game-link img {
 	width: 120px;
-	height: 120px; /* Ensure all images are the same size */
+	height: 120px;
 	border-radius: 50%;
 	margin-bottom: 8px;
 }
@@ -63,22 +63,21 @@ header p {
 }
 
 
-
-/* Responsive Design */
 @media (max-width: 600px) {
 	.game-container {
 		flex-direction: column;
 	}
 }
 
+/* larger sizes for wider screens */
 @media (min-width: 751px) {
 	.game-link img {
-		width: 150px; /* Larger size on wider screens */
+		width: 150px;
 		height: 150px;
 	}
 
 	.game-link {
-		margin: 30px; /* Larger margin on wider screens */
+		margin: 30px;
 	}
 
 	header h1, header p {
@@ -88,15 +87,15 @@ header p {
 
 @media (min-width: 1000px) {
 	.game-link img {
-		width: 200px; /* Even larger size on very wide screens */
+		width: 200px;
 		height: 200px;
 	}
 }
 
 footer {
 	text-align: center;
-	font-size: 0.5em; /* Smaller text size for the footer */
+	font-size: 0.5em;
 	padding: 10px;
-	background-color: #e0e0e0; /* Slightly different background to distinguish */
+	background-color: #e0e0e0;
 	width: 100%;
 }

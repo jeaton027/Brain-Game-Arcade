@@ -39,8 +39,7 @@ body {
 }
 
 .dropdown-menu {
-	display: none; /* Hide dropdown by default */
-	/* position: absolute; */
+	display: none;
 	position: bottom;
 	background-color: #f9f9f9;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -65,11 +64,11 @@ body {
 
 hr {
 	color: lightgray;
-	width: 100%; /* HR takes the full width of the header */
+	width: 100%;
 	border: 0;
 	height: 2px;
 	background-color: #ccc;
-	margin-top: 15px; /* Space between the title/menu and the HR */
+	margin-top: 15px;
 }
 
 #board-container {
@@ -86,16 +85,7 @@ hr {
 }
 
 #board {
-	/* width: 350px;
-	height: 420px; */
 	background-color: white;
-	/* border: 5px solid aquamarine; */
-	/* display: flex; */
-	/* flex-wrap: wrap; */
-	/* flex-direction: column;
-	margin: 0 auto;
-	margin-top: 3px; */
-
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(6, 1fr);
@@ -126,10 +116,6 @@ hr {
         font-size: 20px;
     }
 }
-
-/* .tile.flip {
-	transform:rotateY(180deg);
-} */
 
 #keyboard-container {
 	
@@ -169,10 +155,6 @@ hr {
 	flex-grow: .5;
 }
 
-/* .middle-keyboard-row {
-	margin: 0 20px;
-} */
-
 .correct {
 	background-color: #6aaa64;
 	color: white;
@@ -194,7 +176,7 @@ hr {
 	background-color: #c9b458;
 	color: white;
 }
-/* border-color: white; */
+
 .incorrect {
 	background-color: #787c7e;
 	color: white;
@@ -208,15 +190,15 @@ hr {
 
 .message-box {
 	display: none;
-	margin: 20px auto; /* Vertical spacing and horizontally centered */
-	padding: 10px 20px; /* Padding inside the box */
-	width: 80%; /* Responsive width */
-	max-width: 600px; /* Maximum width to ensure it doesn't get too wide on larger screens */
-	background-color: white; /* White background */
-	color: black; /* Black text */
-	text-align: center; /* Center the text inside the box */
-	border-radius: 10px; /* Rounded corners */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+	margin: 20px auto;
+	padding: 10px 20px;
+	width: 80%;
+	max-width: 600px;
+	background-color: white;
+	color: black;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #restart-button {

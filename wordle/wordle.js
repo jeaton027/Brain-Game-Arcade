@@ -1,4 +1,4 @@
-// const wordDataBase = ["amend", "amino", "among", "angel", "anger"];
+"use strict";
 
 let wordToGuess = "";
 
@@ -7,13 +7,14 @@ let guessedWords = [[]]; 	 // guessedWords[ 0 ] =  ['G', 'U', 'E', 'S', 'S']
 let currTileID = 1;
 let numGuessedWords = 0;
 let wordLength = 5;
-wordLengthToggle = 5;
+let wordLengthToggle = 5;
 
 let gamesWon = 0;
 let gamesPlayed = 0;
 let sumTries = 0;
 let avgTries = 0;
 
+// disables key presses
 function disableKeyboard() {
 	const buttons = document.querySelectorAll('.keyboard button');
 
@@ -32,12 +33,11 @@ function gameIsWon() {
 	// winningAnimation();
 	const messageBox = document.querySelector('.message-box p');
 	messageBox.classList.add('won');
-	// messageBox.querySelector('p').textContent = "Congratulations!";
 	messageBox.textContent = "Congratulations!";
 	messageBox.parentNode.style.display = "block";
-	// window.alert("Congratulations!");
 }
 
+// handles game over if won or lost
 function gameIsOver(bool) {
 	disableKeyboard();
 	const messageBox = document.querySelector('.message-box p');
@@ -58,11 +58,8 @@ function tileToYellow(tileID, char) {
 	const tile = document.getElementById(tileID.toString());
 	const key = document.querySelector(`button[data-key=${char.toUpperCase()}]`);
 
-	// if ((tile && !tile.classList.contains("correct")) && key) {
-		// if ((tile ) && (key && !key.classList.contains("correct"))) {
 	if (tile) {
 		tile.classList.add("wrong-placement");
-		// tile.classList.add("flip");
 	}
 	if (!key.classList.contains("correct")) {	
 		key.classList.add("wrong-placement");
@@ -90,6 +87,7 @@ function tileToGreen(tileID, char) {
 	}
 }
 
+// gets new word for this game to guess
 function getNewWordtoGuess () {
 	const wordListFile = wordLength === 4 ? "dataset/4_letter_words.json" : "dataset/5_letter_words.json";
 	
@@ -104,7 +102,6 @@ function getNewWordtoGuess () {
 }
 
 function compareLetters () {
-	// console.log("currentGuessedWord ", currentGuessedWord)
 	let green = 0;
 	for (let i = 0; i < currentGuessedWord.length; i++) {
 		const char = currentGuessedWord[i];
@@ -122,6 +119,7 @@ function compareLetters () {
 	return green;
 }
 
+// handles submission of a word, and moves onto next guess or ends game
 function submitWord() {
 	if (guessedWords[numGuessedWords] && guessedWords[numGuessedWords].length === wordLength) {
 		numGreenLetters = compareLetters();
@@ -153,6 +151,7 @@ function deleteLetter () {
 	
 }
 
+// handles each keyboard key press
 function keyPress(letter) {
 	if (letter == "ENTER") {
 		if (guessedWords[numGuessedWords].length === wordLength) {
@@ -169,22 +168,17 @@ function keyPress(letter) {
 }
 
 function enterNextLetter(nextLetter) {
-	// console.log("guessedWords", guessedWords, guessedWords[numGuessedWords])
 	if (guessedWords[numGuessedWords] && guessedWords[numGuessedWords].length < wordLength) {
 		currentGuessedWord.push(nextLetter);
 		guessedWords[numGuessedWords] = currentGuessedWord;
-		// console.log("guessedWords[",numGuessedWords,"] = ", guessedWords[numGuessedWords]);
 
-	
 		// creates new element with specific tile's ID by #
 		const nextTileElement = document.getElementById(currTileID.toString());
 
 		currTileID += 1;
-		// console.log("next tile ID", currTileID);
 		// places newest pressed letter into element/tile
 		nextTileElement.textContent = nextLetter;
 	}
-	// console.log("guessedWords[numGuessedWords].length ", guessedWords[numGuessedWords].length);
 }
 
 // create playable tiles for each letter of the 6 guesses of the word
@@ -194,7 +188,7 @@ function createTiles() {
 	while (letterBoard.firstChild) {
 		letterBoard.removeChild(letterBoard.firstChild);
 	}
-	// each tile get unique number ID 1 - 30
+	// each tile gets unique number ID 1 - 30
 	for (let index = 1; index <= wordLength * 6; index++) {
 		let tile = document.createElement("div");
 		tile.classList.add("tile");
@@ -209,13 +203,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	const keys = document.querySelectorAll('keyboard-row button');
 
 	getNewWordtoGuess();
-	// document.getElementById("restart-button").addEventListener("click", restartGame); //TODO here??
 });
 
 
 
 function restartGame() {
-	console.log("wordlen, wordlenToggle: ", wordLength, wordLengthToggle);
 	if (wordLength != wordLengthToggle) {
 		wordLength = wordLengthToggle;
 		const board = document.getElementById("board");
@@ -227,22 +219,22 @@ function restartGame() {
 	guessedWords = [[]]; 	 // guessedWords[ 0 ] =  ['G', 'U', 'E', 'S', 'S']
 	currTileID = 1;
 	numGuessedWords = 0;
-	// wordLength = 5;
 
 	const tiles = document.querySelectorAll('.tile');
+	// reset each tile's text content and remove any added class tags
 	tiles.forEach(tile => {
 		tile.textContent = '';
-		tile.className = 'tile';  // This removes any additional classes like 'correct', 'wrong-placement', 'incorrect'
+		tile.className = 'tile';
 	});
 
-	// Reset all keyboard keys to clickable and default appearance
+	// seset all keyboard keys to clickable and default appearance
 	const keys = document.querySelectorAll('.keyboard button');
 	keys.forEach(key => {
 		key.disabled = false;
-		key.className = 'key';  // This removes any additional classes
+		key.className = 'key';
 	});
 
-	// Hide the message box
+	// hide message box
 	const messageBox = document.querySelector('.message-box');
 	messageBox.style.display = 'none';
 }
@@ -254,8 +246,6 @@ function settingsMenu() {
 }
 
 function setWordLength(length) {
-	
-	console.log("Word length =", wordLength);
 	settingsMenu();
 	wordLengthToggle = length;
 	if (numGuessedWords === 0) {
@@ -273,15 +263,3 @@ function showStatistics() {
 	
 	
 }
-
-// window.onclick = function(event) {
-// 	if (!event.target.matches('#settings-button, #settings-dropdown button')) {
-// 		var dropdowns = document.getElementsByClassName("dropdown-menu");
-// 		for (var i = 0; i < dropdowns.length; i++) {
-// 			var openDropdown = dropdowns[i];
-// 			if (openDropdown.style.display === 'block') {
-// 				openDropdown.style.display = 'none';
-// 			}
-// 		}
-// 	}
-// }

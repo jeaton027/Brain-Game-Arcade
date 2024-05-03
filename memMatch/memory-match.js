@@ -1,79 +1,85 @@
-let rows = 4;  // Default rows
-let columns = 4;  // Default columns
+"use strict"
+
+let rows = 4;  // default rows
+let columns = 4;  // default columns
 let allImages = [];
 let flippedCards = [];
 let matches = 0;
 let pairs = (rows * columns) / 2;
 let tilesDisabled = false;
-
+let moves = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
 	const movesCounter = document.querySelector(".moves");
 	let moves = 0;
 	movesCounter.textContent = moves;
 
-	// winw.changeThedow.restartGame = restartGame;  // Expose function to global scope for the HTML button
-	// windome = changeTheme;  // Expose function to global scope for the HTML button
-
-	restartGame();  // Initial setup and grid creation
+	// create and place tiles
+	restartGame();
+	// default theme to start
 	changeTheme('carnival');
 
 	document.getElementById('show-themes').addEventListener('click', function() {
 		var themeDiv = document.querySelector('.theme-selection');
-		// Toggle visibility
-		if (themeDiv.style.display === 'none') {
-			themeDiv.style.display = 'block';  // Show the div
-			themeDiv.classList.add('visible'); // Add class for CSS transition (if used)
-		} else {
-			themeDiv.style.display = 'none';   // Hide the div
-			themeDiv.classList.remove('visible'); // Remove class for CSS transition (if used)
-		}
+		// toggle visibility of sub category buttons
+        themeDiv.style.display = themeDiv.style.display === 'none' ? 'block' : 'none';
+        themeDiv.classList.toggle('visible');
 	});
 	
 });
 
+// hides buttons after selection is made
 function settingsMenu() {
 	const dropdown = document.getElementById('theme-selection');
 	dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 }
 
+// change the set of images
 function changeTheme(theme) {
 	settingsMenu();
-	console.log('Theme selected:', theme);
+	// console.log('theme selected:', theme);
 	let filepath = `./assets/${theme}/cards.json`;
-	console.log('Fetching cards from:', filepath);
+	// console.log('getting cards from:', filepath);
 
 	fetch(filepath)
 		.then(response => response.json())
 		.then(data => {
-			allImages = data;  // Store all images globally
-			restartGame();  // Call restartGame to shuffle and display tiles
+			// image array
+			allImages = data;
+			// shuffle and place tiles
+			restartGame();
 		})
 		.catch(error => console.error('Failed to load theme images:', error));
 }
 
-function chooseRandomImages(images, count) {
+// choose half the number of tiles of random images from passed array
+function chooseRandomImages(images, halfTileNum) {
 	let shuffled = images.sort(() => 0.5 - Math.random());
-	return shuffled.slice(0, count);
+	return shuffled.slice(0, halfTileNum);
 }
 
+// shuffle tiles
 function shuffleTiles(images) {
 	for (let i = images.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));
-		[images[i], images[j]] = [images[j], images[i]]; // ES6 destructuring assignment for swapping
+		[images[i], images[j]] = [images[j], images[i]];
 	}
 	return images;
 }
 
 function createTiles() {
 	const gameBoard = document.querySelector(".game-board");
-	gameBoard.innerHTML = '';  // Clear existing tiles
+	// clear existing tiles
+	gameBoard.innerHTML = '';
 	gameBoard.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
 	gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 
+	// choose (nxm) / 2 random images from image array
 	const neededImages = chooseRandomImages(allImages, (rows * columns) / 2);
-	const imageSet = shuffleTiles([...neededImages, ...neededImages]);  // Duplicate and shuffle tiles
+	// duplicate and shuffle tiles
+	const imageSet = shuffleTiles([...neededImages, ...neededImages]);
 
+	// create each tile and associate its id with respective image
 	imageSet.forEach(item => {
 		const tile = document.createElement('div');
 		tile.className = 'tile card';
@@ -101,7 +107,7 @@ function restartGame() {
 	movesCounter.textContent = moves;
 	tilesDisabled = false;	
 	createTiles();
-	// Reset all tiles to clickable and default appearance
+	// reset all tiles to clickable and default appearance
 	const tiles = document.querySelectorAll('.game-board button');
 	
 }
@@ -115,7 +121,7 @@ function flipCard(tile) {
 		flippedCards.push(tile);
 
 		if (flippedCards.length === 2) {
-			setTimeout(checkMatch, 1000); // Check for a match after a brief delay
+			setTimeout(checkMatch, 1000); // check for a match after delay
 		}
 	}
 }
@@ -126,24 +132,23 @@ function checkMatch() {
 	const movesCounter = document.querySelector(".moves");
 	movesCounter.textContent = moves;
 	if (first.getAttribute('data-name') === second.getAttribute('data-name')) {
-		// It's a match
+		// it's a match
 		first.classList.add('matched');
 		second.classList.add('matched');
 		matches++;
 		checkGameOver();
 	} else {
-		// No match, flip them back
+		// no match, flip them back
 		first.classList.remove('flipped');
 		second.classList.remove('flipped');
 	}
-	
-	flippedCards = []; // Reset flipped cards array for the next turn
+	// reset flipped cards array for the next turn
+	flippedCards = [];
 }
 
 function checkGameOver() {
 	if (matches === pairs) {
-		console.log('Game Over! You matched all pairs.');
 		alert('Congratulations! You matched all pairs.');
-		restartGame(); // Optionally restart the game or offer the player to restart
+		restartGame();
 	}
 }
