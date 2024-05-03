@@ -1,7 +1,7 @@
 "use strict"
 
 let rows = 4;  // default rows
-let columns = 4;  // default columns
+let columns = 3;  // default columns
 let allImages = [];
 let flippedCards = [];
 let matches = 0;
@@ -25,8 +25,26 @@ document.addEventListener("DOMContentLoaded", () => {
         themeDiv.style.display = themeDiv.style.display === 'none' ? 'block' : 'none';
         themeDiv.classList.toggle('visible');
 	});
+	document.getElementById('settings-button').addEventListener('click', difficultyMenu);
 	
 });
+
+function difficultyMenu() {
+	const dropdown = document.getElementById('difficulty-selection');
+	dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+function changeDifficulty(selectedRows, selectedColumns) {
+	difficultyMenu();
+	rows = selectedRows;
+	columns = selectedColumns;
+	const gameBoard = document.querySelector(".game-board");
+	gameBoard.classList.remove("hard");
+	if (selectedRows === 6 && selectedColumns === 4) {
+		gameBoard.classList.add("hard");
+	}
+	restartGame();
+}
 
 // hides buttons after selection is made
 function settingsMenu() {

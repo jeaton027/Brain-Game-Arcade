@@ -15,6 +15,14 @@
 				<button id="home-button" onclick="window.location.href='../index.html'">
 					<img src="../homepage/assets/icons/home.png" alt="Home">
 				</button>
+				<button id="settings-button" onclick="settingsMenu()">
+					<img src="../homepage/assets/icons/settings.png" alt="Settings">
+				</button>
+				<div id="difficulty-selection" class="difficulty-selection" style="display: none;">
+					<button onclick="changeDifficulty(4, 3)">Easy 3x4</button>
+					<button onclick="changeDifficulty(4, 4)">Medium 4x4</button>
+					<button onclick="changeDifficulty(6, 4)">Hard 6x4</button>
+				</div>
 			</div>
 			
 		</div>
