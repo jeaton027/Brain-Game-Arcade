@@ -122,7 +122,7 @@ function compareLetters () {
 // handles submission of a word, and moves onto next guess or ends game
 function submitWord() {
 	if (guessedWords[numGuessedWords] && guessedWords[numGuessedWords].length === wordLength) {
-		numGreenLetters = compareLetters();
+		let numGreenLetters = compareLetters();
 		if (numGreenLetters === wordLength) {
 			gameIsOver(true);
 		} else if (numGuessedWords === 5) {
