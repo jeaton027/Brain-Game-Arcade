@@ -4,22 +4,36 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Memory Match Game</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="memory-match.css">
+	<link rel="stylesheet" href="../homepage/style.css">
 </head>
 <body>
-	<h1>Memory Match</h1>
-	<button id="show-themes">Themes</button>
-	<div class="theme-selection" style="display: none;">
-		<button onclick="changeTheme('carnival')"> Carnival</button>
-		<button onclick="changeTheme('monuments')">World Wonders</button>
-		<button onclick="changeTheme('summer')">Summer</button>
-		<button onclick="changeTheme('animals')">Animals</button>
-		<button onclick="changeTheme('desert')">Desert</button>
-
-	</div>
+	<header>
+		<div class="title-container">
+			<h1 class="title">Memory Match</h1>
+			<div class="menu">
+				<button id="home-button" onclick="window.location.href='../homepage/index.html'">
+					<img src="../homepage/assets/icons/home.png" alt="Home">
+				</button>
+			</div>
+			
+		</div>
+		<div class="themes-container">
+			<button id="show-themes">Themes</button>
+			<div id="theme-selection" class="theme-selection" style="display: none;">
+				<button onclick="changeTheme('carnival')">Carnival</button>
+				<button onclick="changeTheme('monuments')">World Wonders</button>
+				<button onclick="changeTheme('summer')">Summer</button>
+				<button onclick="changeTheme('animals')">Animals</button>
+				<button onclick="changeTheme('desert')">Desert</button>
+			</div>
+		</div>
+		<hr>
+	</header>
+	
 	<div id="game-board" class="game-board"></div>
 	<p>Moves: <span class="moves"></span></p>
 	<button id="restart-button" onclick="restartGame()">Restart Game</button>
-	<script src="index.js"></script>
+	<script src="memory-match.js"></script>
 </body>
 </html>

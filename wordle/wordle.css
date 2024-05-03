@@ -19,35 +19,12 @@ body {
 	align-items: center;
 }
 
-header {
-	width: 100%;
-	padding: 10px 20px; /* Top and bottom padding, left and right padding */
-	display: flex;
-	flex-direction: column; /* Stack the title and the menu vertically */
-	align-items: center; /* Center align the title */
-}
-
 .title-container {
-	width: 100%; /* Ensures full width utilization */
-	display: flex;
-	justify-content: space-between; /* Spreads the title and menu apart */
-	align-items: center;
+	width: 100%;
 }
 
 .title {
-	font-size: 36px;
-	font-weight: bold;
-	letter-spacing: 2px;
-	color: #333;
-	margin: 0;
-	text-align: center; /* Keeps title centered */
-	flex: 1; /* Allows title to take up the maximum available space */
-}
-
-.menu {
-	display: flex;
-	align-items: center;
-	gap: 10px; /* Spacing between buttons */
+	margin-left: 100px;
 }
 
 .menu button {
@@ -101,6 +78,11 @@ hr {
 	align-items: center;
 	/* flex-grow: 1;
 	overflow: hidden; */
+	width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 #board {
@@ -136,13 +118,26 @@ hr {
 	align-items: center;
 }
 
+@media (max-height: 700px) {
+    .tile {
+        width: 40px;
+        height: 40px;
+        padding-bottom: 0;
+        font-size: 20px;
+    }
+}
+
 /* .tile.flip {
 	transform:rotateY(180deg);
 } */
 
 #keyboard-container {
-	height: 200px;
-	width: 500px;
+	
+	width: 100%;
+	max-width: 500px;
+	margin: 0;
+	box-sizing: border-box;
+	padding: 20px;
 	align-items: center;
 }
 
@@ -151,6 +146,7 @@ hr {
 	justify-content: center;
 	width: 100%;
 	margin: 0 auto 8px;
+	flex-wrap: wrap;
 	/* perspective: 1000px; animation */
 	
 }

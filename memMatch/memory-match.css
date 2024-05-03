@@ -1,0 +1,197 @@
+body {
+	min-height: 100vh;
+	background-color: blanchedalmond;
+	color: rgb(56, 50, 50);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+}
+
+header {
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+h1 {
+	text-align: center;
+	font-weight: 700;
+	font-size: 40px;
+	margin: 0;
+}
+
+#home-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+#home-button img {
+	height: 24px;
+	width: auto;
+}
+
+p {
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+#restart-button:hover {
+	border: solid;
+	border-color: orange;
+}
+
+#restart-button:active {
+	background-color: gold;
+}
+
+.game-board {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	gap: 16px;
+	margin: 20px auto;
+	width: 90vw;
+	max-width: 560px;
+	justify-content: center;
+}
+
+@media (max-width: 600px) {
+	h1 {
+		font-size: 6vw;
+	}
+
+	p {
+		font-size: 4vw;
+	}
+
+	.game-board {
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		width: 80vw;
+		gap: 8px;
+	}
+
+	.tile {
+		width: 15vw;
+		height: 15vw;
+	}
+}
+
+@media (max-width: 400px) {
+	h1 {
+		font-size: 8vw;
+	}
+
+	p {
+		font-size: 5vw;
+	}
+
+	.game-board {
+		width: 100vw;
+		gap: 4px;
+	}
+
+	.tile {
+		width: 22vw;
+		height: 22vw;
+	}
+}
+
+.tile {
+	width: 20vw;
+	height: 20vw;
+	max-width: 140px;
+	max-height: 140px;
+	position: relative;
+	cursor: pointer;
+	background-color: #f0f0f0;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	overflow: hidden;
+	transform-style: preserve-3d;
+	transition: all 0.5s ease-in-out;
+}
+
+.front,
+.back {
+	backface-visibility: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	top: 0;
+	left: 0;
+	transition: transform 0.5s ease-in-out;
+}
+
+.front img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.front {
+	transform: rotateY(180deg);
+}
+
+.back {
+	background-image: url("assets/just-waves.png");
+	transform: rotateY(0deg);
+}
+
+.tile.flipped .front {
+	transform: rotateY(0deg);
+}
+
+.tile.flipped .back {
+	transform: rotateY(180deg);
+}
+
+.themes-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+}
+
+#show-themes {
+	background-color: white;
+	border-color: rgb(40, 44, 45);
+	border: 1px solid;
+	font-size: 1rem;
+	transition: background-color 0.3s, transform 0.2s;
+	margin-bottom: 10px;
+}
+
+#show-themes:hover {
+	border-color: orange;
+}
+
+#show-themes:active {
+	background-color: gold;
+}
+
+.theme-selection button:hover {
+	border-color: orange;
+}
+
+.theme-selection.visible {
+	opacity: 1;
+}
+
+.theme-selection button {
+	background-color: white;
+	border-color: rgb(40, 44, 45);
+	border: 1px solid;
+	font-size: 0.7rem;
+	transition: background-color 0.3s, transform 0.2s;
+}
+
+.theme-selection button:active {
+	background-color: gold;
+}

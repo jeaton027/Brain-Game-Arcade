@@ -7,6 +7,7 @@ let guessedWords = [[]]; 	 // guessedWords[ 0 ] =  ['G', 'U', 'E', 'S', 'S']
 let currTileID = 1;
 let numGuessedWords = 0;
 let wordLength = 5;
+wordLengthToggle = 5;
 
 let gamesWon = 0;
 let gamesPlayed = 0;
@@ -50,7 +51,7 @@ function gameIsOver(bool) {
 	}
 	messageBox.parentNode.style.display = "block";
 	gamesPlayed++;
-	sumTries += numGuessedWords;
+	sumTries += numGuessedWords + 1;
 }
 
 function tileToYellow(tileID, char) {
@@ -90,7 +91,9 @@ function tileToGreen(tileID, char) {
 }
 
 function getNewWordtoGuess () {
-	fetch("dataset/5_letter_words.json")
+	const wordListFile = wordLength === 4 ? "dataset/4_letter_words.json" : "dataset/5_letter_words.json";
+	
+	fetch(wordListFile)
 		.then(response => response.json())
 		.then(data => {
 			const randomIndex = Math.floor(Math.random() * data.words.length);
@@ -105,7 +108,7 @@ function compareLetters () {
 	let green = 0;
 	for (let i = 0; i < currentGuessedWord.length; i++) {
 		const char = currentGuessedWord[i];
-		let tileIDIndex = i + (numGuessedWords * 5) + 1;
+		let tileIDIndex = i + (numGuessedWords * wordLength) + 1;
 		if( char === wordToGuess[i]) {
 			tileToGreen(tileIDIndex, char);
 			green += 1;
@@ -120,7 +123,7 @@ function compareLetters () {
 }
 
 function submitWord() {
-	if (guessedWords[numGuessedWords] && guessedWords[numGuessedWords].length === 5) {
+	if (guessedWords[numGuessedWords] && guessedWords[numGuessedWords].length === wordLength) {
 		numGreenLetters = compareLetters();
 		if (numGreenLetters === wordLength) {
 			gameIsOver(true);
@@ -152,7 +155,7 @@ function deleteLetter () {
 
 function keyPress(letter) {
 	if (letter == "ENTER") {
-		if (guessedWords[numGuessedWords].length === 5) {
+		if (guessedWords[numGuessedWords].length === wordLength) {
 			submitWord();
 		}
 	}
@@ -167,7 +170,7 @@ function keyPress(letter) {
 
 function enterNextLetter(nextLetter) {
 	// console.log("guessedWords", guessedWords, guessedWords[numGuessedWords])
-	if (guessedWords[numGuessedWords] && guessedWords[numGuessedWords].length < 5) {
+	if (guessedWords[numGuessedWords] && guessedWords[numGuessedWords].length < wordLength) {
 		currentGuessedWord.push(nextLetter);
 		guessedWords[numGuessedWords] = currentGuessedWord;
 		// console.log("guessedWords[",numGuessedWords,"] = ", guessedWords[numGuessedWords]);
@@ -184,29 +187,41 @@ function enterNextLetter(nextLetter) {
 	// console.log("guessedWords[numGuessedWords].length ", guessedWords[numGuessedWords].length);
 }
 
+// create playable tiles for each letter of the 6 guesses of the word
+function createTiles() {
+	const letterBoard = document.getElementById("board")
+	
+	while (letterBoard.firstChild) {
+		letterBoard.removeChild(letterBoard.firstChild);
+	}
+	// each tile get unique number ID 1 - 30
+	for (let index = 1; index <= wordLength * 6; index++) {
+		let tile = document.createElement("div");
+		tile.classList.add("tile");
+		tile.setAttribute("id", index);
+		letterBoard.appendChild(tile);
+	}
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 	createTiles();
 
 	const keys = document.querySelectorAll('keyboard-row button');
 
-	
-	// create playable tiles for each letter of the 6 guesses of the word
-	function createTiles() {
-		const letterBoard = document.getElementById("board")
-
-		// each tile get unique number ID 1 - 30
-		for (let index = 1; index <= 30; index++) {
-			let tile = document.createElement("div");
-			tile.classList.add("tile");
-			tile.setAttribute("id", index);
-			letterBoard.appendChild(tile);
-		}
-	}
 	getNewWordtoGuess();
 	// document.getElementById("restart-button").addEventListener("click", restartGame); //TODO here??
 });
 
+
+
 function restartGame() {
+	console.log("wordlen, wordlenToggle: ", wordLength, wordLengthToggle);
+	if (wordLength != wordLengthToggle) {
+		wordLength = wordLengthToggle;
+		const board = document.getElementById("board");
+    	board.style.gridTemplateColumns = `repeat(${wordLength}, 1fr)`;
+		createTiles();
+	}
 	getNewWordtoGuess();
 	currentGuessedWord = []; // ['G', 'U', 'E', 'S', 'S']
 	guessedWords = [[]]; 	 // guessedWords[ 0 ] =  ['G', 'U', 'E', 'S', 'S']
@@ -232,19 +247,24 @@ function restartGame() {
 	messageBox.style.display = 'none';
 }
 
+// closes toggle button after selection is made
 function settingsMenu() {
 	const dropdown = document.getElementById('settings-dropdown');
 	dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 }
 
 function setWordLength(length) {
-	wordLength = length;
+	
 	console.log("Word length =", wordLength);
 	settingsMenu();
+	wordLengthToggle = length;
+	if (numGuessedWords === 0) {
+		restartGame();
+	}
 }
 
 function showStatistics() {
-	avgTries = sumTries / gamesPlayed;
+	avgTries = (sumTries / gamesPlayed).toFixed(1);
 	if (gamesWon === 0) {
 		alert(`Games won: ${gamesWon}`);
 	} else {

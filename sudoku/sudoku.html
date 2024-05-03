@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sudoku</title>
+	<link rel="stylesheet" href="../homepage/style.css">
+	<link rel="stylesheet" href="sudoku.css">
+</head>
+<body>
+    <header>
+        <div class="title-container">
+            <h1 class="title">Sudoku</h1>
+            <div class="menu">
+                <button id="home-button" onclick="window.location.href='../homepage/index.html'">
+                    <img src="../homepage/assets/icons/home.png" alt="Home">
+                </button>
+            </div>
+        </div>
+    </header>
+    <hr>
+
+    <div id="board"></div>
+    <br>
+    <div id="digits"></div>
+    <p>Errors: <span id="errors">0</span></p>
+    <button id="restart-button" onclick="restartGame()">Restart Game</button>
+	<button id="solveButton" onclick="solveBoard()">Solve</button>
+    <script src="sudoku.js"></script>
+</body>
+</html>

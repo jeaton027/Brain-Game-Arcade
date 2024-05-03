@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Wordle</title>
-
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../homepage/style.css">
+	<link rel="stylesheet" href="wordle.css">
 	
 </head>
 <body>
@@ -15,16 +15,20 @@
 				<span></span>
 				<h1 class="title">WORDLE</h1>
 				<div class="menu">
+					<button id="home-button" onclick="window.location.href='../homepage/index.html'">
+						<img src="../homepage/assets/icons/home.png" alt="Home">
+					</button>
 					<button id="settings-button" onclick="settingsMenu()">
-						<img src="icons/settings.png" alt="Settings">
+						<img src="../homepage/assets/icons/settings.png" alt="Settings">
+					</button>
+					<button id="stats-button" onclick="showStatistics()">
+						<img src="../homepage/assets/icons/stats.png" alt="Statistics">
 					</button>
 					<div id="settings-dropdown" class="dropdown-menu">
 						<button onclick="setWordLength(4)">4 Letters</button>
 						<button onclick="setWordLength(5)">5 Letters</button>
 					</div>
-					<button id="stats-button" onclick="showStatistics()">
-						<img src="icons/stats.png" alt="Statistics">
-					</button>
+					
 				</div>
 			</div>
 			<hr>
@@ -88,6 +92,6 @@
 
 		<h1 id="answer"></h1>
 	</div>
-	<script src="index.js"></script>
+	<script src="wordle.js"></script>
 </body>
 </html>

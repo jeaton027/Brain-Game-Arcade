@@ -32,7 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 });
 
+function settingsMenu() {
+	const dropdown = document.getElementById('theme-selection');
+	dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
 function changeTheme(theme) {
+	settingsMenu();
 	console.log('Theme selected:', theme);
 	let filepath = `./assets/${theme}/cards.json`;
 	console.log('Fetching cards from:', filepath);
@@ -89,12 +95,11 @@ function createTiles() {
 
 function restartGame() {
 	moves = 0;
-	let matches = 0;
+	matches = 0;
+	flippedCards = [];
 	const movesCounter = document.querySelector(".moves");
 	movesCounter.textContent = moves;
-	tilesDisabled = false;
-	// changeTheme('carnival');  // You can change this default or make it dynamic
-	
+	tilesDisabled = false;	
 	createTiles();
 	// Reset all tiles to clickable and default appearance
 	const tiles = document.querySelectorAll('.game-board button');
